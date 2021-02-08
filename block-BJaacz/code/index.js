@@ -24,13 +24,13 @@ function addFive(num) {
     - Returns a new array where 2 is added to each element
     - While doing so use the funciton addTwo
 */
-let addTwoToArray = function (arr, cb) {
+let addTwoToArray = function (arr) {
   let arrNew = [];
   for (let nums of arr) {
-    arrNew.push(cb(nums));
+    arrNew.push(addTwo(nums));
   }
+  return arrNew;
 };
-addTwoToArray([1, 2, 3, 4], addTwo);
 
 /*
   Create a function named addThreeToArray which accepts:
@@ -38,13 +38,13 @@ addTwoToArray([1, 2, 3, 4], addTwo);
     - aeturns a new array where 2 is added to each element
     - while doing so use the funciton addThree
 */
-let addThreeToArray = function (arr, cb) {
+let addThreeToArray = function (arr) {
   let arrNew = [];
   for (let nums of arr) {
-    arrNew.push(cb(nums));
+    arrNew.push(addThree(nums));
   }
+  return arrNew;
 };
-addTwoToArray([1, 2, 3, 4], addThree);
 
 /*
   Create a function named addFiveToArray which accepts:
@@ -53,13 +53,13 @@ addTwoToArray([1, 2, 3, 4], addThree);
     - while doing so use the funciton addThree
 */
 
-let addFiveToArray = function (arr, cb) {
+let addFiveToArray = function (arr) {
   let arrNew = [];
   for (let nums of arr) {
-    arrNew.push(cb(nums));
+    arrNew.push(addthree(nums));
   }
+  return arrNew;
 };
-addTwoToArray([1, 2, 3, 4], addFive);
 /*
 In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeating the code, let's fix this.
 
@@ -93,7 +93,7 @@ function changeArray(arr, cb) {
     console.log(sendMessage("Hello Prompt!", prompt));
 */
 function sendMessage(message, cb) {
-  return cb(message);
+  return cb;
 }
 
 /*
@@ -175,7 +175,7 @@ let isAdult = (obj) => (obj.age > 18 ? true : false);
     console.log(isMale(grade[2])); // true
 */
 
-let isMale = (obj) => obj.sex === M ? true : false
+let isMale = (obj) => (obj.sex === M ? true : false);
 /*
   Create a function named isFemale which accepts:
     - an object
@@ -186,7 +186,7 @@ let isMale = (obj) => obj.sex === M ? true : false
     console.log(isFemale(grade[1])); // true
     console.log(isFemale(grade[2])); // false
 */
-let isFemale = (obj) => obj.sex === F ? true : false
+let isFemale = (obj) => (obj.sex === F ? true : false);
 /*
   Create a function named isGradeA which accepts:
     - an object
@@ -197,7 +197,7 @@ let isFemale = (obj) => obj.sex === F ? true : false
     console.log(isGradeA(grade[1])); // false
     console.log(isGradeA(grade[2])); // true
 */
-let isGradeA = (obj) => obj.grade > 12 ? true : false
+let isGradeA = (obj) => (obj.grade > 12 ? true : false);
 /*
   Create a function named isGradeB which accepts:
     - an object
@@ -208,7 +208,7 @@ let isGradeA = (obj) => obj.grade > 12 ? true : false
     console.log(isGradeB(grade[1])); // true
     console.log(isGradeB(grade[2])); // false
 */
-let isGradeB = (obj) => obj.grade > 8 && obj.grade < 12 ? true : false
+let isGradeB = (obj) => (obj.grade > 8 && obj.grade < 12 ? true : false);
 /*
   Create a function named isGradeC which accepts:
     - an object
@@ -219,7 +219,7 @@ let isGradeB = (obj) => obj.grade > 8 && obj.grade < 12 ? true : false
     console.log(isGradeC(grade[1])); // false
     console.log(isGradeC(grade[2])); // false
 */
-let isGradeC = (obj) => (obj.grade <= 8) ? true : false
+let isGradeC = (obj) => (obj.grade <= 8 ? true : false);
 /*
   Create a function named filterAdult which accepts:
     - an array of objects
@@ -235,10 +235,15 @@ let isGradeC = (obj) => (obj.grade <= 8) ? true : false
       { name: 'Liam Smith', age: 20 },
     ];
 */
-function filterAdult ([obj]){
-  return newArr;
+function filterAdult(arr) {
+  let final = [];
+  for (let person of arr) {
+    if (isAdult(person)) {
+      final.push(person);
+    }
+  }
+  return final;
 }
-
 
 /*
   Create a function named filterMale which accepts:
@@ -258,7 +263,15 @@ function filterAdult ([obj]){
       { name: 'Donald', grade: 5, sex: 'M' },
     ];
 */
-
+function filterMale(arr) {
+  let final = [];
+  for (let person of arr) {
+    if (isMale(person)) {
+      final.push(person);
+    }
+  }
+  return final;
+}
 /*
   Create a function named filterFemale which accepts:
     - an array of objects
@@ -277,7 +290,15 @@ function filterAdult ([obj]){
       { name: 'Jane', grade: 9, sex: 'F' },
     ]
 */
-
+function filterFemale(arr) {
+  let final = [];
+  for (let person of arr) {
+    if (isFemale(person)) {
+      final.push(person);
+    }
+  }
+  return final;
+}
 /*
   Create a function named filterGradeA which accepts:
     - an array of objects
@@ -297,7 +318,15 @@ function filterAdult ([obj]){
       { name: 'Jane', grade: 9, sex: 'F' },
     ]
 */
-
+function isGradeA(arr) {
+  let final = [];
+  for (let person of arr) {
+    if (isGradeA(person)) {
+      final.push(person);
+    }
+  }
+  return final;
+}
 /*
   Create a function named filterGradeB which accepts:
     - an array of objects
@@ -316,7 +345,15 @@ function filterAdult ([obj]){
      { name: 'Jane', grade: 9, sex: 'F' },
     ]
 */
-
+function isGradeB(arr) {
+  let final = [];
+  for (let person of arr) {
+    if (isGradeB(person)) {
+      final.push(person);
+    }
+  }
+  return final;
+}
 /*
   Create a function named filterGradeC which accepts:
     - an array of objects
@@ -334,7 +371,15 @@ function filterAdult ([obj]){
       { name: 'Donald', grade: 5, sex: 'M' },
     ]
 */
-
+function isGradeC(arr) {
+  let final = [];
+  for (let person of arr) {
+    if (isGradeC(person)) {
+      final.push(person);
+    }
+  }
+  return final;
+}
 /*
 We are repeating lots of code in above functions like filterGradeC, filterGradeB, filterGradeA, filterAdult. We will fix
 this by making a higher order function named filter. Now using one function filter we will be able to filter anything we want.
@@ -355,7 +400,15 @@ filter is a higher order function.
     console.log(filter(grade, isGradeB));
     console.log(filter(grade, isGradeC));
 */
-
+function filter(arr, callback) {
+  let final = [];
+  for (let person of arr) {
+    if (filter(person)) {
+      final.push(person);
+    }
+  }
+  return final;
+}
 /*
   Create a function named multiplyBy which accepts:
     - a number (num)
@@ -374,3 +427,9 @@ filter is a higher order function.
     console.log(multiplyByFive(20)); // 180
     console.log(multiplyByFive(5)); // 45
 */
+function multiplyBy(num) {
+  return function (num2) {
+    return num * num2
+  };
+}
+
