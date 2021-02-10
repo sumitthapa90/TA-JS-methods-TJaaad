@@ -90,6 +90,6 @@ let messageArray = message.split(" ");
 
 // Log all the words of messageArray
 
-console.log(message.split(" "));
+console.log(message.split(" "));git
 
 
