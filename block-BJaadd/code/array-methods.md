@@ -215,13 +215,71 @@ bike.unshift("HERO")//(7) ["HERO", "TVS", "LML", "KTM", "DUCATI", "BAJAJ", "FRE
 - It mutates the original array
 
 14`findIndex`;
+
+
 15`filter`;
+
+Parameter: It can have a callback function and the current element being processed in the array
+Return: It returns undefined
+
+
+let numbers = [3, 5, 8, 10, 20, 35, 68, 78, 95]
+
+function isEven(number){
+  return number % 2 === 0;
+}
+
+numbers.filter(isEven)
+
+let numbers = [3, 5, 8, 10, 20, 35, 68, 78, 95]
+
+function isOdd(number){
+  return number % 2 !== 0;
+}
+
+numbers.filter(isOdd)
+
+`filter` can be used to iterate through the array such that each value is sent into the callback function and then it checks the condition, If it satisfies the condition then the value is returned back
+No it does not mutate the array
+
 16`flat`;
 17`forEach`;
+
+
 18`map`;
 
-19`pop`;
+Parameter: There is a call back function and then it executes the current element being processed in the array
+Return: It returns the new array that has all the elements which have been executed through the call back function
+Example
 
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+function double(number){
+return number * 2
+}
+numbers.map(double)// (10) [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+let numbers = [3, 5, 8, 10, 20, 35, 68, 78, 95]
+
+function multiply(number){
+  return number * 5
+}
+
+numbers.map(multiply)// 9) [15, 25, 40, 50, 100, 175, 340, 390, 475]
+
+let numbers =[2, 4, 6, 8, 10, 12, 14, 16]
+
+function division(number){
+
+  return number / 5
+}
+
+numbers.map(division)//(8) [0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2]
+
+`map` It creates a new array with
+It mutates the original array
+
+19`pop`;
 Parameter: Its empty
 Return: It returns the element that has been popped out of the array, it returns undefined if the array is empty
 Example
