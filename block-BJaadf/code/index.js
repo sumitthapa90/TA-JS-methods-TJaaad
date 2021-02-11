@@ -43,7 +43,8 @@ fruits[1] = "Pears";
 
 // Add the 'Kiwi' and 'Lemon' to the index 1 and 2 and shift the other element to next index (use splice to add element)
 
-(fruits[1] = "kiwi"), (fruits[2] = "lemon");
+fruits.splice(1, 0, "Kiwi", "Lemon");
+console.log(fruits);
 
 // Remove (slice) all the element from index 5
 
@@ -55,7 +56,7 @@ let moreFruits = ["Berries", "Melons"];
 
 // Concat moreFruits into fruits array (re-assign so the value gets updated)
 
-fruits.concat(moreFruits);
+fruits = fruits.concat(moreFruits);
 
 // Log the name of all fruit in console
 
@@ -69,11 +70,11 @@ fruits.forEach((x) => console.log(x));
 
 // Convert all fruits name into lowercase and store in new array named lowercaseFruits
 
-fruits.forEach((x) => console.log(x.toLowerCase()));
+let lowercase = fruits.map((fruits) => fruits.toLowerCase());
 
 // Convert all fruits name into uppercase and store in new array named uppercaseFruits
 
-fruits.forEach((x) => console.log(x.toUpperCase()));
+let upercase = fruits.map((fruits) => fruits.toUpperCase());
 
 let numbers = [1, 2, [3, 4]];
 let numbersTwo = [1, 2, [3, 4, [5, 6]]];
@@ -81,12 +82,12 @@ let numbersThree = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 
 // Convert the numbers array to one level element. Remove sub-arrays to individual elements and log them
 
-numbers.flat().forEach((x) => console.log(x));
+console.log(numbers.flat());
 
 // Convert the numbersTwo array to one level element. Remove all sub-arrays to individual elements and log them.
 // (for multiple level flat accepts argument by default it's 1 `array.flat(2)`)
 
-numbersTwo.flat(2).forEach((x) => console.log(x));
+console.log(numbersTwo.flat(2));
 // Convert the numbersThree array to one level element.
 
 numbersThree.flat(10);
@@ -122,20 +123,20 @@ let oddNumbers = numbersThree.flat(10).filter((x) => {
 });
 // Find the index of 10 in numbersThree array
 
-numbersThree.flat(10).indexOf(10);
+numbersThree.find((num) => num === 10);
 
 // Reverse the values of numbersThree array
 
-numbersThree.flat(10).reverse();
+numbersThree.reverse();
 
 // Reverse the values of numbersTwo array
 
-numbersTwo.flat(6).reverse();
+numbersTwo.reverse();
 
 // Join all fruits with '-', convert to uppercase and log it
 
-fruits.forEach(x => console.log(x.concat('-').toUpperCase()))
+console.log(fruits.join("-").toUpperCase());
 
 // Join all fruits with '&', convert to lowercase and log it
 
-fruits.forEach(x => console.log(x .concat('&').toLowerCase()))
+console.log(fruits.join('&').toLowerCase());
